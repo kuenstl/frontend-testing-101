@@ -1,10 +1,11 @@
 export class Todo {
+  _id?: string;
   completed: boolean;
-  editing: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
 
-  constructor(public title: string) {
+  constructor(public text: string) {
     this.completed = false;
-    this.editing = false;
-    this.title = title.trim();
+    this.text = text.trim();
   }
 }

@@ -1,65 +1,46 @@
-import {Todo} from './todo.model';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 
-const localStorageKey = 'ngx-todos';
+import { Todo } from './todo.model';
 
+@Injectable()
 export class TodoService {
-  todos: Array<Todo>;
+  private todosUrl = 'http://localhost:3031/todos';
 
-  constructor() {
-    let persistedTodos =
-        JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+  constructor(private http: HttpClient) {}
 
-    this.todos =
-        persistedTodos.map((todo: {title: string, completed: boolean}) => {
-          let newTodo = new Todo(todo.title);
-          newTodo.completed = todo.completed;
-          return newTodo;
-        });
+  addTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(this.todosUrl, todo);
   }
 
-  allCompleted() {
-    return this.todos.length === this.getCompleted().length;
+  getTodos() {
+    return this.http
+      .get<any>(this.todosUrl)
+      .pipe(
+        map(resp => resp.data),
+        map(todos => todos.sort(TodoService.compareFn))
+      );
   }
 
-  setAllTo(completed: boolean) {
-    this.todos.forEach((todo: Todo) => todo.completed = completed);
-    this.update();
+  updateTodo(todo: Todo): Observable<any> {
+    const id = typeof todo === 'string' ? todo : todo._id;
+    const url = `${this.todosUrl}/${id}`;
+
+    return this.http.put(url, todo);
   }
 
-  removeCompleted() {
-    this.todos = this.getWithCompleted(false);
-    this.update();
+  deleteTodo(todo: Todo | string): Observable<Todo> {
+    const id = typeof todo === 'string' ? todo : todo._id;
+    const url = `${this.todosUrl}/${id}`;
+
+    return this.http.delete<Todo>(url);
   }
 
-  getRemaining() {
-    return this.getWithCompleted(false);
-  }
-
-  getCompleted() {
-    return this.getWithCompleted(true);
-  }
-
-  toggleCompletion(todo: Todo) {
-    todo.completed = !todo.completed;
-    this.update();
-  }
-
-  remove(todo: Todo) {
-    this.todos.splice(this.todos.indexOf(todo), 1);
-    this.update();
-  }
-
-  add(title: string) {
-    this.todos.push(new Todo(title));
-    this.update();
-  }
-
-  private update() {
-    localStorage.setItem(localStorageKey, JSON.stringify(this.todos));
-  }
-
-  private getWithCompleted(completed: boolean) {
-    return this.todos
-      .filter((todo: Todo) => todo.completed === completed);
+  static compareFn(a, b) {
+    if (a.createdAt < b.createdAt) return -1;
+    if (a.createdAt > b.createdAt) return 1;
+    return 0;
   }
 }

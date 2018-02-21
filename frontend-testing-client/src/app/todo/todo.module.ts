@@ -2,22 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { TodoComponent } from './todo.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoService } from './todo.service';
 
 @NgModule({
-  declarations: [
-    TodoComponent
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-  ],
+  declarations: [TodoListComponent],
+  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule],
   providers: [TodoService],
-  exports: [
-    TodoComponent
-  ]
+  exports: [TodoListComponent]
 })
-export class TodoModule { }
+export class TodoModule {}

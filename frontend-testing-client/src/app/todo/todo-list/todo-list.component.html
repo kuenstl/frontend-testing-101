@@ -1,0 +1,27 @@
+<section class="todoapp">
+  <header class="header">
+    <h1>Todos</h1>
+
+    <input class="new-todo" placeholder="What needs to be done?" autofocus="" 
+      [(ngModel)]="newTodoText" (keyup.enter)="addTodo()">
+
+  </header>
+
+  <section class="main">
+    <ul class="todo-list">
+
+      <li *ngFor="let todo of todos" 
+        [class.completed]="todo.completed">
+
+        <div class="view">
+          <input class="toggle" type="checkbox" 
+            (click)="toggleCompletion(todo._id)" [checked]="todo.completed">
+          <label>{{ todo.text }}</label>
+          <button class="destroy" (click)="delete(todo)"></button>
+        </div>
+
+      </li>
+    </ul>
+  </section>
+
+</section>
