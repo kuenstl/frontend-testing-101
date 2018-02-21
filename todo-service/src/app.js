@@ -1,4 +1,3 @@
-const path = require('path');
 const compress = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -11,6 +10,7 @@ const swagger = require('feathers-swagger');
 
 const models = require('./models');
 const services = require('./services');
+const appHooks = require('./app.hooks');
 
 const app = express(feathers());
 
@@ -19,23 +19,26 @@ app.use(cors());
 app.use(helmet());
 app.use(compress());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.configure(express.rest());
-app.configure(swagger({
-  docsPath: '/docs',
-  uiIndex: true,
-  info: {
-    title: 'Todo Service',
-    description: 'A simple Todo REST service for demo purposes.'
-  }
-}));
+app.configure(
+  swagger({
+    docsPath: '/docs',
+    uiIndex: true,
+    info: {
+      title: 'Todo Service',
+      description: 'A simple Todo REST service for demo purposes.'
+    }
+  })
+);
 app.configure(models);
 app.configure(services);
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());
-app.use(express.errorHandler({logger}));
+app.use(express.errorHandler({ logger }));
 
+app.hooks(appHooks);
 
 module.exports = app;

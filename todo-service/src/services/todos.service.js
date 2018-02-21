@@ -35,7 +35,7 @@ class Todos {
   }
 
   async get(id, params) {
-    const todo = this.todos.find(todo => todo.id === parseInt(id, 10));
+    const todo = this.todos.find(todo => todo._id === id);
 
     if(!todo) {
       throw new Error(`Todo with id ${id} not found`);
@@ -45,16 +45,12 @@ class Todos {
   }
 
   async create(data, params) {
-    const todo = Object.assign({
-      id: ++this.currentId
-    }, data);
+    this.todos.push(data);
 
-    this.todos.push(todo);
-
-    return todo;
+    return data;
   }
 
-  async patch(id, data, params) {
+  async put(id, data, params) {
     const todo = await this.get(id);
 
     return Object.assign(todo, data);

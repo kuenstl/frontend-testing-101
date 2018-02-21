@@ -9,8 +9,8 @@ const db = new NeDB({
 const todoModel = service({
   Model: db,
   paginate: {
-    default: 2,
-    max: 4
+    default: 10,
+    max: 10
   }
 });
 
