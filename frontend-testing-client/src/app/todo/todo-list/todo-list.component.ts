@@ -21,8 +21,7 @@ export class TodoListComponent implements OnInit {
     this.todoService.getTodos().subscribe(todos => (this.todos = todos));
   }
 
-  toggleCompletion(id: string) {
-    const todo = this.todos.find(t => t._id === id);
+  toggleCompletion(todo: Todo) {
     todo.completed = !todo.completed;
     this.todoService.updateTodo(todo).subscribe(todo => {
       const idx = this.todos.findIndex(t => todo._id === t._id);

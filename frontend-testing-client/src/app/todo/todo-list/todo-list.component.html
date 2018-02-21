@@ -10,17 +10,11 @@
   <section class="main">
     <ul class="todo-list">
 
-      <li *ngFor="let todo of todos" 
-        [class.completed]="todo.completed">
+      <ft-todo-item *ngFor="let todo of todos" 
+        [todo]="todo"
+        (onCompleted)="toggleCompletion(todo)"
+        (onDeleted)="delete(todo)"></ft-todo-item>
 
-        <div class="view">
-          <input class="toggle" type="checkbox" 
-            (click)="toggleCompletion(todo._id)" [checked]="todo.completed">
-          <label>{{ todo.text }}</label>
-          <button class="destroy" (click)="delete(todo)"></button>
-        </div>
-
-      </li>
     </ul>
   </section>
 
