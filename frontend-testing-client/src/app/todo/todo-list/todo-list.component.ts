@@ -17,12 +17,11 @@ export class TodoListComponent implements OnInit {
     this.getTodos();
   }
 
-  getTodos(): void {
+  getTodos() {
     this.todoService.getTodos().subscribe(todos => (this.todos = todos));
   }
 
   toggleCompletion(todo: Todo) {
-    todo.completed = !todo.completed;
     this.todoService.updateTodo(todo).subscribe(todo => {
       const idx = this.todos.findIndex(t => todo._id === t._id);
       this.todos[idx] = todo;

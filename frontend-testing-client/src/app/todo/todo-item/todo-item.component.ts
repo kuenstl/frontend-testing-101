@@ -11,6 +11,7 @@ export class TodoItemComponent {
   @Output() onDeleted = new EventEmitter<Todo>();
 
   completeTodo(todo: Todo) {
+    todo.completed = !todo.completed;
     this.onCompleted.emit(todo);
   }
 

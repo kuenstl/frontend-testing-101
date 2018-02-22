@@ -1,28 +1,63 @@
-import { async, TestBed } from '@angular/core/testing';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 
 import { TodoItemComponent } from './todo-item.component';
-import { TodoService } from '../todo.service';
+import { Todo } from '../todo.model';
 
 describe('TodoItemComponent', () => {
+  let comp: TodoItemComponent;
+  let fixture: ComponentFixture<TodoItemComponent>;
+  const testTodo = new Todo('Write unit tests');
+
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [CommonModule, FormsModule],
-        providers: [TodoService],
-        declarations: [
-          TodoItemComponent
-        ]
+        declarations: [TodoItemComponent]
       }).compileComponents();
+
+      fixture = TestBed.createComponent(TodoItemComponent);
+      comp = fixture.componentInstance;
+
+      comp.todo = testTodo;
+      fixture.detectChanges();
     })
   );
+
   it(
     'should create the component',
     async(() => {
-      const fixture = TestBed.createComponent(TodoItemComponent);
-      const component = fixture.debugElement.componentInstance;
-      expect(component).toBeTruthy();
+      expect(comp).toBeTruthy();
     })
   );
+
+  it(
+    'should show the text of the todo item',
+    async(() => {
+      const label = fixture.debugElement.query(By.css('label'));
+      expect(label.nativeElement.textContent).toContain('Write unit tests');
+    })
+  );
+
+  it('should raise complete event when checkbox was clicked', () => {
+    let selectedTodo: Todo;
+    comp.onCompleted.subscribe((todo: Todo) => selectedTodo = todo);
+  
+    const inputEl  = fixture.debugElement.query(By.css('input')); 
+    inputEl.triggerEventHandler('click', null);
+
+    testTodo.completed = true;
+    expect(selectedTodo).toBe(testTodo);
+  });
+
+  it('should raise delete event when button was clicked', () => {
+    let selectedTodo: Todo;
+    comp.onDeleted.subscribe((todo: Todo) => selectedTodo = todo);
+  
+    const buttonEl  = fixture.debugElement.query(By.css('button')); 
+    buttonEl.triggerEventHandler('click', null);
+    expect(selectedTodo).toBe(testTodo);
+  });
+
+  
 });
