@@ -7,7 +7,11 @@ node_js:
 
 cache:
   directories:
-     - ./node_modules
+     - ./todo-service/node_modules
+     - ./frontend-testing-client/node_modules
+
+before_install:
+  - cd frontend-testing-client
 
 install:
   - npm install
