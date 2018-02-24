@@ -10,7 +10,7 @@
   <section class="main">
     <ul class="todo-list">
 
-      <ft-todo-item *ngFor="let todo of todos" 
+      <ft-todo-item *ngFor="let todo of todos"
         [todo]="todo"
         (onCompleted)="toggleCompletion(todo)"
         (onDeleted)="delete(todo)"></ft-todo-item>
