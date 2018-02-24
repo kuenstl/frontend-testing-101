@@ -1,11 +1,12 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/frontend-testing-client
+    working_directory: ~frontend-testing
     docker:
       - image: circleci/node:6-browsers
     steps:
       - checkout
+      - run: cd frontend-testing-client
       - restore_cache:
           key: frontend-testing-client-{{ .Branch }}-{{ checksum "package.json" }}
       - run: npm install
