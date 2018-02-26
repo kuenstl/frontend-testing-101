@@ -1,7 +1,0 @@
-{"text":"lkasdfj","completed":true,"createdAt":"2018-02-21T19:06:59.640Z","updatedAt":{"$$date":1519240054515},"_id":"CZ5eTjypBDrepywi"}
-{"text":"123f","completed":true,"createdAt":"2018-02-21T18:44:36.270Z","updatedAt":{"$$date":1519240055069},"_id":"sQuZbKrHLe5adRmV"}
-{"$$deleted":true,"_id":"sQuZbKrHLe5adRmV"}
-{"$$deleted":true,"_id":"CZ5eTjypBDrepywi"}
-{"text":"Learn about Unit Tests","completed":false,"createdAt":{"$$date":1519585982042},"_id":"FLL5gJLFPtrJ2SXh"}
-{"text":"Write Unit Tests","completed":false,"createdAt":{"$$date":1519585986796},"_id":"eyYJKzS7YYqC605j"}
-{"text":"Learn about Unit Tests","completed":true,"createdAt":"2018-02-25T19:13:02.042Z","updatedAt":{"$$date":1519585996861},"_id":"FLL5gJLFPtrJ2SXh"}

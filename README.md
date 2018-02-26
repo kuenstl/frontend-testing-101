@@ -1,5 +1,6 @@
 # Frontend Testing 101
-[![Build Status](https://travis-ci.org/msteinberger/frontend-testing-101.svg?branch=master)](https://travis-ci.org/msteinberger/frontend-testing-101)
+[![Build Status](https://semaphoreci.com/api/v1/msteinberger/frontend-testing-101/branches/master/badge.svg)](https://semaphoreci.com/msteinberger/frontend-testing-101)
+[![Coverage Status](https://coveralls.io/repos/github/msteinberger/frontend-testing-101/badge.svg?branch=master)](https://coveralls.io/github/msteinberger/frontend-testing-101?branch=master)
 
 ## Overview
 
