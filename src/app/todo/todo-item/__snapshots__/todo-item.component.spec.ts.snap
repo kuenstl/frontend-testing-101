@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItemComponent should create the component 1`] = `
+<ft-todo-item
+  onCompleted={[Function EventEmitter]}
+  onDeleted={[Function EventEmitter]}
+  todo={[Function Todo]}
+>
+  <li>
+    
+    
+    <div
+      class="view"
+    >
+      
+      
+      <input
+        class="toggle"
+        type="checkbox"
+      />
+      
+      
+      <label>
+        Write unit tests
+      </label>
+      
+      
+      <button
+        class="destroy"
+      />
+      
+    
+    </div>
+    
+  
+  </li>
+  
+</ft-todo-item>
+`;
+
+exports[`TodoItemComponent should raise complete event when checkbox was clicked 1`] = `
+<ft-todo-item
+  onCompleted={[Function EventEmitter]}
+  onDeleted={[Function EventEmitter]}
+  todo={[Function Todo]}
+>
+  <li>
+    
+    
+    <div
+      class="view"
+    >
+      
+      
+      <input
+        class="toggle"
+        type="checkbox"
+      />
+      
+      
+      <label>
+        Write unit tests
+      </label>
+      
+      
+      <button
+        class="destroy"
+      />
+      
+    
+    </div>
+    
+  
+  </li>
+  
+</ft-todo-item>
+`;
+
+exports[`TodoItemComponent should raise delete event when button was clicked 1`] = `
+<ft-todo-item
+  onCompleted={[Function EventEmitter]}
+  onDeleted={[Function EventEmitter]}
+  todo={[Function Todo]}
+>
+  <li
+    class="completed"
+  >
+    
+    
+    <div
+      class="view"
+    >
+      
+      
+      <input
+        class="toggle"
+        type="checkbox"
+      />
+      
+      
+      <label>
+        Write unit tests
+      </label>
+      
+      
+      <button
+        class="destroy"
+      />
+      
+    
+    </div>
+    
+  
+  </li>
+  
+</ft-todo-item>
+`;
+
+exports[`TodoItemComponent should show the text of the todo item 1`] = `
+<ft-todo-item
+  onCompleted={[Function EventEmitter]}
+  onDeleted={[Function EventEmitter]}
+  todo={[Function Todo]}
+>
+  <li>
+    
+    
+    <div
+      class="view"
+    >
+      
+      
+      <input
+        class="toggle"
+        type="checkbox"
+      />
+      
+      
+      <label>
+        Write unit tests
+      </label>
+      
+      
+      <button
+        class="destroy"
+      />
+      
+    
+    </div>
+    
+  
+  </li>
+  
+</ft-todo-item>
+`;

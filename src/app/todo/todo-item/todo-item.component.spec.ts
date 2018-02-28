@@ -26,11 +26,13 @@ describe('TodoItemComponent', () => {
 
   it('should create the component', () => {
     expect(comp).toBeTruthy();
+    expect(fixture).toMatchSnapshot();
   });
 
   it('should show the text of the todo item', () => {
     const label = fixture.debugElement.query(By.css('label'));
     expect(label.nativeElement.textContent).toBe('Write unit tests');
+    expect(fixture).toMatchSnapshot();
   });
 
   it('should raise complete event when checkbox was clicked', () => {
@@ -42,6 +44,7 @@ describe('TodoItemComponent', () => {
 
     testTodo.completed = true;
     expect(selectedTodo).toBe(testTodo);
+    expect(fixture).toMatchSnapshot();
   });
 
   it('should raise delete event when button was clicked', () => {
@@ -51,6 +54,7 @@ describe('TodoItemComponent', () => {
     const buttonEl = fixture.debugElement.query(By.css('button'));
     buttonEl.triggerEventHandler('click', null);
     expect(selectedTodo).toBe(testTodo);
+    expect(fixture).toMatchSnapshot();
   });
 
 });

@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListComponent should add a todo 1`] = `
+<ft-todo-list
+  newTodoText=""
+  todoService={[Function Object]}
+  todos={[Function Array]}
+>
+  <section
+    class="todoapp"
+  >
+    
+    
+    <header
+      class="header"
+    >
+      
+      
+      <h1>
+        Todos
+      </h1>
+      
+  
+      
+      <input
+        autofocus=""
+        class="new-todo ng-untouched ng-pristine ng-valid"
+        ng-reflect-model=""
+        placeholder="What needs to be done?"
+      />
+      
+  
+    
+    </header>
+    
+  
+    
+    <section
+      class="main"
+    >
+      
+      
+      <ul
+        class="todo-list"
+      >
+        
+  
+        
+        
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write unit tests
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write more unit tests
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write another unit test
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        
+  
+      
+      </ul>
+      
+    
+    </section>
+    
+  
+  
+  </section>
+  
+</ft-todo-list>
+`;
+
+exports[`TodoListComponent should create the component 1`] = `
+<ft-todo-list
+  newTodoText=""
+  todoService={[Function Object]}
+  todos={[Function Array]}
+>
+  <section
+    class="todoapp"
+  >
+    
+    
+    <header
+      class="header"
+    >
+      
+      
+      <h1>
+        Todos
+      </h1>
+      
+  
+      
+      <input
+        autofocus=""
+        class="new-todo ng-untouched ng-pristine ng-valid"
+        ng-reflect-model=""
+        placeholder="What needs to be done?"
+      />
+      
+  
+    
+    </header>
+    
+  
+    
+    <section
+      class="main"
+    >
+      
+      
+      <ul
+        class="todo-list"
+      >
+        
+  
+        
+        
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write unit tests
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write more unit tests
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        
+  
+      
+      </ul>
+      
+    
+    </section>
+    
+  
+  
+  </section>
+  
+</ft-todo-list>
+`;
+
+exports[`TodoListComponent should show existing todos 1`] = `
+<ft-todo-list
+  newTodoText=""
+  todoService={[Function Object]}
+  todos={[Function Array]}
+>
+  <section
+    class="todoapp"
+  >
+    
+    
+    <header
+      class="header"
+    >
+      
+      
+      <h1>
+        Todos
+      </h1>
+      
+  
+      
+      <input
+        autofocus=""
+        class="new-todo ng-untouched ng-pristine ng-valid"
+        ng-reflect-model=""
+        placeholder="What needs to be done?"
+      />
+      
+  
+    
+    </header>
+    
+  
+    
+    <section
+      class="main"
+    >
+      
+      
+      <ul
+        class="todo-list"
+      >
+        
+  
+        
+        
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write unit tests
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        <ft-todo-item
+          ng-reflect-todo="[object Object]"
+        >
+          <li>
+            
+    
+            <div
+              class="view"
+            >
+              
+      
+              <input
+                class="toggle"
+                type="checkbox"
+              />
+              
+      
+              <label>
+                Write more unit tests
+              </label>
+              
+      
+              <button
+                class="destroy"
+              />
+              
+    
+            </div>
+            
+  
+          </li>
+          
+  
+        </ft-todo-item>
+        
+  
+      
+      </ul>
+      
+    
+    </section>
+    
+  
+  
+  </section>
+  
+</ft-todo-list>
+`;

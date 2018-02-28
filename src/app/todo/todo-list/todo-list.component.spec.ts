@@ -40,18 +40,20 @@ describe('TodoListComponent', () => {
     component = fixture.debugElement.componentInstance;
     todoService = fixture.debugElement.injector.get(TodoService);
 
-    addTodoSpy = spyOn(todoService, 'addTodo').and.callThrough();
+    addTodoSpy = jest.spyOn(todoService, 'addTodo');
 
     fixture.detectChanges();
   });
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
+    expect(fixture).toMatchSnapshot();
   });
 
   it('should show existing todos', () => {
     expect(component.todos).toContain(firstTestTodo);
     expect(component.todos).toContain(secondTestTodo);
+    expect(fixture).toMatchSnapshot();
   });
 
   it('should add a todo', fakeAsync(() => {
@@ -66,5 +68,6 @@ describe('TodoListComponent', () => {
     fixture.detectChanges();
 
     expect(addTodoSpy).toHaveBeenCalledWith(newTestTodo);
+    expect(fixture).toMatchSnapshot();
   }));
 });
