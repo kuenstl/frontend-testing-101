@@ -42,6 +42,10 @@ module.exports = function(config) {
     coverageReporter: {
       type: 'lcov',
       dir: 'coverage/'
-    }
+    },
+    files: [
+      'node_modules/todomvc-common/base.css',
+      'node_modules/todomvc-app-css/index.css'
+    ]
   });
 };

@@ -6,9 +6,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test -sm=false",
+    "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "test-chrome": "npm run test -- --browser=Chrome --code-coverage"
   },
   "private": true,
   "dependencies": {

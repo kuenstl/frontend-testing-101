@@ -24,26 +24,20 @@ describe('TodoItemComponent', () => {
     })
   );
 
-  it(
-    'should create the component',
-    async(() => {
-      expect(comp).toBeTruthy();
-    })
-  );
+  it('should create the component', () => {
+    expect(comp).toBeTruthy();
+  });
 
-  it(
-    'should show the text of the todo item',
-    async(() => {
-      const label = fixture.debugElement.query(By.css('label'));
-      expect(label.nativeElement.textContent).toContain('Write unit tests');
-    })
-  );
+  it('should show the text of the todo item', () => {
+    const label = fixture.debugElement.query(By.css('label'));
+    expect(label.nativeElement.textContent).toBe('Write unit tests');
+  });
 
   it('should raise complete event when checkbox was clicked', () => {
     let selectedTodo: Todo;
     comp.onCompleted.subscribe((todo: Todo) => selectedTodo = todo);
-  
-    const inputEl  = fixture.debugElement.query(By.css('input')); 
+
+    const inputEl = fixture.debugElement.query(By.css('input'));
     inputEl.triggerEventHandler('click', null);
 
     testTodo.completed = true;
@@ -53,11 +47,10 @@ describe('TodoItemComponent', () => {
   it('should raise delete event when button was clicked', () => {
     let selectedTodo: Todo;
     comp.onDeleted.subscribe((todo: Todo) => selectedTodo = todo);
-  
-    const buttonEl  = fixture.debugElement.query(By.css('button')); 
+
+    const buttonEl = fixture.debugElement.query(By.css('button'));
     buttonEl.triggerEventHandler('click', null);
     expect(selectedTodo).toBe(testTodo);
   });
 
-  
 });

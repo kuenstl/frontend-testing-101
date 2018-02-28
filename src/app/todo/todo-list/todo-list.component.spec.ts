@@ -19,60 +19,52 @@ describe('TodoListComponent', () => {
   let todoService;
   let addTodoSpy;
 
-  beforeEach(
-    async(() => {
-      const todoServiceStub = {
-        getTodos() {
-          return Observable.from([[firstTestTodo, secondTestTodo]]);
-        },
+  beforeEach(() => {
+    const todoServiceStub = {
+      getTodos() {
+        return Observable.from([[firstTestTodo, secondTestTodo]]);
+      },
 
-        addTodo(todo) {
-          return Observable.from([todo]);
-        }
-      };
+      addTodo(todo) {
+        return Observable.from([todo]);
+      }
+    };
 
-      TestBed.configureTestingModule({
-        imports: [CommonModule, FormsModule],
-        declarations: [TodoItemComponent, TodoListComponent],
-        providers: [{ provide: TodoService, useValue: todoServiceStub }]
-      }).compileComponents();
+    TestBed.configureTestingModule({
+      imports: [CommonModule, FormsModule],
+      declarations: [TodoItemComponent, TodoListComponent],
+      providers: [{ provide: TodoService, useValue: todoServiceStub }]
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(TodoListComponent);
-      component = fixture.debugElement.componentInstance;
-      todoService = fixture.debugElement.injector.get(TodoService);
+    fixture = TestBed.createComponent(TodoListComponent);
+    component = fixture.debugElement.componentInstance;
+    todoService = fixture.debugElement.injector.get(TodoService);
 
-      addTodoSpy = spyOn(todoService, 'addTodo').and.callThrough();
-      fixture.detectChanges();
-    })
-  );
+    addTodoSpy = spyOn(todoService, 'addTodo').and.callThrough();
 
-  it(
-    'should create the component',
-    async(() => {
-      expect(component).toBeTruthy();
-    })
-  );
+    fixture.detectChanges();
+  });
 
-  it(
-    'should show existing todos',
-    async(() => {
-      expect(component.todos).toContain(firstTestTodo);
-      expect(component.todos).toContain(secondTestTodo);
-    })
-  );
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
 
-  it(
-    'should add a todo',
-    fakeAsync(() => {
-      const newTestTodo = new Todo('Write another unit test');
-      component.newTodoText = newTestTodo.text;
-      fixture.detectChanges();
-      component.addTodo(newTestTodo);
+  it('should show existing todos', () => {
+    expect(component.todos).toContain(firstTestTodo);
+    expect(component.todos).toContain(secondTestTodo);
+  });
 
-      fixture.detectChanges();
-      tick(10);
-      fixture.detectChanges();
-      expect(addTodoSpy).toHaveBeenCalledWith(newTestTodo);
-    })
-  );
+  it('should add a todo', fakeAsync(() => {
+    const newTestTodo = new Todo('Write another unit test');
+    component.newTodoText = newTestTodo.text;
+    fixture.detectChanges();
+
+    component.addTodo(newTestTodo);
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
+    expect(addTodoSpy).toHaveBeenCalledWith(newTestTodo);
+  }));
 });
