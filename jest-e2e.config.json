@@ -1,0 +1,4 @@
+{
+  "rootDir": "e2e",
+  "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js"
+}
